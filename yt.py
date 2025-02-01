@@ -4,9 +4,9 @@ import json
 
 # Replace with your YouTube API Key
 API_KEY = "YOUR_YOUTUBE_API_KEY"
-CHANNEL_ID = "UC6JYpJj89UUvUbwVf9D2y7A"  # Replace with actual LEAP Channel ID
+CHANNEL_ID = "UC6JYpJj89UUvUbwVf9D2y7A"  # Replace with actual Channel ID
 
-# Fetch YouTube videos from LEAP's channel
+# Fetch YouTube videos from channel
 search_url = f"https://www.googleapis.com/youtube/v3/search?key={API_KEY}&channelId={CHANNEL_ID}&part=snippet&type=video&maxResults=10"
 videos = requests.get(search_url).json().get("items", [])
 
@@ -41,7 +41,7 @@ for video in videos:
     video_data.append(weaviate_object)
 
 # Save data to a JSON file
-json_path = "LEAP_YouTube_Data.json"
+json_path = "YouTube_Data.json"
 with open(json_path, "w", encoding="utf-8") as f:
     json.dump(video_data, f, indent=4)
 
